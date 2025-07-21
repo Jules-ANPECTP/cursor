@@ -1,0 +1,1 @@
+Bonjour Chat, Transforme-moi en un composant personnalisable (par exemple, Carte(titre, prix, caractéristiques)), le code suivant :

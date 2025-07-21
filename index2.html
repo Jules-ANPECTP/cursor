@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cartes Prix Dynamiques</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .pricing {
+      width: 300px;
+      background-color: #fff;
+      box-shadow: 0 0 10px #ccc;
+      padding: 15px;
+      text-align: left;
+      border-radius: 8px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .price {
+      font-size: 18px;
+      color: green;
+    }
+
+    .features {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+
+    .features li {
+      padding: 4px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .btn {
+      background: blue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn:hover {
+      background: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Conteneur pour les cartes -->
+  <div id="cartes-container"></div>
+
+  <script>
+    function Carte(titre, prix, caracteristiques = []) {
+      const div = document.createElement("div");
+      div.className = "pricing";
+
+      const html = `
+        <h2 class="title">${titre}</h2>
+        <p class="price">${prix}</p>
+        <ul class="features">
+          ${caracteristiques.map(item => `<li>${item}</li>`).join("")}
+        </ul>
+        <button class="btn">Démarrer l'essai</button>
+      `;
+
+      div.innerHTML = html;
+      return div;
+    }
+
+    // Exemple : création de plusieurs cartes
+    const cartes = [
+      Carte("Forfait de base", "10000 FCFA/mois", ["1 Go de stockage", "Assistance de base", "Fonctionnalités principales"]),
+      Carte("Pro", "20000 FCFA/mois", ["10 Go de stockage", "Support prioritaire", "Statistiques avancées"]),
+      Carte("Entreprise", "50000 FCFA/mois", ["100 Go de stockage", "Support 24/7", "API dédiée", "Multi-utilisateur"])
+    ];
+
+    const container = document.getElementById("cartes-container");
+    cartes.forEach(carte => container.appendChild(carte));
+  </script>
+</body>
+</html>
